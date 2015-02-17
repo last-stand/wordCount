@@ -1,0 +1,146 @@
+****** Acceptance Test ******
+
+(a.) wc counts total number of lines, number of words and number of characters in a  given file.
+one.txt content:
+	  hello, this is a good day.
+	  What do you think?
+	Input:node wc.js one.txt
+	Expected Output: 2		10		48 one.txt
+
+
+(b.) wc counts number of characters with flag -c
+	 node wc.js [filename] -c
+	 one.txt content:
+	  	hello, this is a good day.
+	  	What do you think?
+	Input:node wc.js one.txt -c
+	Expected Output: 48 one.txt
+
+(c.) wc counts number of words with flag -w
+	 node wc.js [filename] -w
+	 one.txt content:
+	  	hello, this is a good day.
+	  	What do you think?
+	Input:node wc.js one.txt -w
+	Expected Output: 10 one.txt
+
+(d.) wc counts number of lines with flag -l
+	 node wc.js [filename] -l
+	 one.txt content:
+	  	hello, this is a good day.
+	  	What do you think?
+	Input:node wc.js one.txt -l
+	Expected Output: 2 one.txt
+
+(e.) wc counts maximum length of line in file with flag -L
+	 node wc.js [filename] -L
+	 one.txt content:
+	  	hello, this is a good day.
+	  	What do you think?
+	Input:node wc.js one.txt -L
+	Expected Output: 26	one.txt
+
+(f.) wc also works with multiple flags:
+	 one.txt content:
+	 	hello, this is a good day.
+	  	What do you think?
+	Input:node wc.js one.txt -l -w -c -L
+	Expected Output:  2		10		48		26 one.txt
+	 Input:node wc.js
+	  hello, this is a good day.
+
+(g.) wc also works with command line input data given by user without flags.
+	Input:node wc.js
+	  hello, this is a good day.
+	  What do you think?
+	//After pressing Ctrl + D 
+	Expected Output:  2		10		48 one.txt
+
+(h.) wc also works with command line input data given by user with flags.
+	Input:node wc.js -c -w -l
+	  hello, this is a good day.
+	  What do you think?
+	//After pressing Ctrl + D 
+	Expected Output:  2		10		48 one.txt
+
+(i.) wc takes flags in any order:
+	 one.txt content:
+	 	hello, this is a good day.
+	  	What do you think?
+	Input:node wc.js one.txt -w -c -l
+	Expected Output:  2		10		48 one.txt
+
+(j.) wc takes text file at any position and flags in any order:
+	 one.txt content:
+	 	hello, this is a good day.
+	  	What do you think?
+	Input:node wc.js -w -c -l one.txt
+	Expected Output:  2		10		48 one.txt
+
+(k.) wc gives help information using --help flag
+	 Input:node wc.js --help
+	 Expected Output:
+	 Usage: wc [OPTION]... [FILE]...
+	Print line, word, and byte counts for each FILE, and a total line if
+	more than one FILE is specified.  With no FILE, or when FILE is -,
+	read standard input.
+  	-c   	print the byte counts
+  	-l   	print the newline counts
+  	-L   	print the length of the longest line
+  	-w   	print the word counts
+    --help  display this help and exit
+
+
+**************************** ToDo ****************************
+1) [Done] Get code scaffold ready for writing tests and code.
+	# DropBox folders
+	# Git Bash
+	# Sublime
+	# runtest.js
+	# wc.js
+	# wclibrary.js
+	# wclibraryTest.js
+	(Estimated Time: 10 mins)
+
+2) Validation.
+	# Check if options are valid or not.(5 mins)
+	# When passing text file, check if the text file exist or not.(5 mins)
+(Estimated Time: 10 mins)
+
+3) Open the text file to put its content into memory after reading it.
+	# read the contents of the text file (5 mins)
+(Estimated Time: 5 mins)
+
+4) Create method which count number of lines from a given text file.
+	# count number of new lines from the file in memory as string which is number of lines in given text file (10 mins)
+(Estimated Time: 10 mins)
+
+5) Create method which count number of words from a given text file.
+	# split text from spaces as well as lines into words (5 mins)
+	# count number of words (5 mins)
+(Estimated Time: 10 mins)
+
+6) Create method which count number of characters.
+	# get the length of file content in memory as string which is number of characters
+	(10 mins)
+(Estimated Time: 10 mins)
+
+7) Create method which count maximum numbers of characters in a line from a given text file.
+	# split the text as single string from new line (5 mins)
+	# find the length of each line from splitted text(5 mins)
+	# find the maximum length from the array which is maximum characters of line in text (5 mins)
+(Estimated Time: 15 mins)
+
+8) Create method which gives help information about wc and use of their options.
+	# Show the content of --help flag using with wc as output. (10 mins)
+(Estimated Time: 10 mins)
+
+9) User interaction for command line input.
+   # Take command line input from user in instead of passing text file as input.(10 mins)
+(Estimated Time: 10 mins)
+
+10) Integrate the parts of the program.
+	# Call all methods in main function in order to combine all features of wc.(10 mins)
+(Estimated Time: 10 mins)
+
+Total Estimated Time: 2.00 hours
