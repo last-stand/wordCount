@@ -119,11 +119,62 @@ public class WCTest {
     	assertSame("should be same", 112, wc.countChars());
     }
 
-
     @Test
     public void countChars_should_return_0_if_string_is_empty(){
     	String str = "";
     	WordCount wc = new WordCount(str);
     	assertSame("should be same", 0, wc.countChars());
+    }
+
+    @Test
+    public void countNewLines_returns_0_if_given_string_has_one_line_without_new_line(){
+    	String str = "My name is Khan.";
+    	WordCount wc = new WordCount(str);
+    	assertSame("should be same", 0, wc.countNewLines(str));
+    }
+
+    @Test
+    public void countNewLines_returns_number_of_new_lines_from_the_given_string(){
+    	String str1 = "My name is Khan.\n";
+    	String str2 = "My name is Khan.\n And I am not a terrorist.\n";
+    	WordCount wc1 = new WordCount(str1);
+    	WordCount wc2 = new WordCount(str2);
+    	assertSame("should be same", 1, wc1.countNewLines(str1));
+    	assertSame("should be same", 2, wc2.countNewLines(str2));
+    }
+
+    @Test
+    public void countNewLines_returns_all_occurences_of_new_line_from_string(){
+    	String str = "My name is Khan.\r\n \r\n \r\n \r\n  And I am not a terrorist.\r\n \r\n";
+    	WordCount wc = new WordCount(str);
+    	assertSame("should be same", 6, wc.countNewLines(str));
+    }
+
+    @Test
+    public void countLines_returns_0_if_given_string_has_one_line_without_new_line(){
+    	String str1 = "My name is Khan.";
+    	String str2 = "My name is Khan.\n";
+    	WordCount wc1 = new WordCount(str1);
+    	WordCount wc2 = new WordCount(str2);
+    	assertSame("should be same", 0, wc1.countLines());
+    	assertFalse("failure - should be false", 0 == wc2.countLines());
+    }
+
+    @Test
+    public void countLines_returns_number_of_lines_if_given_string_has_lines_with_new_line(){
+    	String str1 = "My name is Khan.\n";
+    	String str2 = "My name is Khan. \n And I am not a terrorist";
+    	WordCount wc1 = new WordCount(str1);
+    	WordCount wc2 = new WordCount(str2);
+    	assertSame("should be same", 1, wc1.countLines());
+    	assertSame("should be same", 1, wc2.countLines());
+    	assertFalse("failure - should be false", 2 == wc2.countLines());
+    }
+
+    @Test
+    public void countLines_returns_all_occurences_of_new_line_from_string(){
+    	String str = "My name is Khan.\r\n\r\n\r\n\r\nAnd I am not a terrorist.\r\n\r\n";
+    	WordCount wc = new WordCount(str);
+    	assertSame("should be same", 6, wc.countLines());
     }
 }
