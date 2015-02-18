@@ -5,11 +5,12 @@ public class WordCount{
 	}
 
 	public int countWords(){
+		if(str == "") return 0;
 		String[] words = str.split("\\s+");
 		return words.length;
 	}
 
 	public int countChars(){
-		return str.getBytes().length;
+		return str.length();
 	}
 }

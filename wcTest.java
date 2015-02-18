@@ -55,7 +55,7 @@ public class WCTest {
     }
 
     @Test
-    public void count_word_treats_number_as_word(){
+    public void countWords_treats_number_as_word(){
 		String str1 = "10";
 		String str2 = "007 420 1001";
 		WordCount wc1 = new WordCount(str1);
@@ -67,7 +67,7 @@ public class WCTest {
 	};
 
 	@Test
-    public void count_word_treats_special_characters_as_word(){
+    public void countWords_treats_special_characters_as_word(){
 		String str1 = "@";
 		String str2 = "+-*/ #@&$ .,<>";
 		WordCount wc1 = new WordCount(str1);
@@ -77,6 +77,13 @@ public class WCTest {
 		assertSame("should be same", 3, wc2.countWords());
 		assertFalse("failure - should be false", 0 == wc2.countWords());
 	};
+
+	@Test
+    public void countWords_should_return_0_if_string_is_empty(){
+    	String str = "";
+    	WordCount wc = new WordCount(str);
+    	assertSame("should be same", 0, wc.countWords());
+    }
 
     @Test
     public void countChars_should_count_number_of_characters_in_given_string_with_spaces() {
@@ -110,5 +117,13 @@ public class WCTest {
 			    	 "\nLike a diamond  in the sky";
     	WordCount wc = new WordCount(str);
     	assertSame("should be same", 112, wc.countChars());
+    }
+
+
+    @Test
+    public void countChars_should_return_0_if_string_is_empty(){
+    	String str = "";
+    	WordCount wc = new WordCount(str);
+    	assertSame("should be same", 0, wc.countChars());
     }
 }
