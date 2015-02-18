@@ -8,4 +8,8 @@ public class WordCount{
 		String[] words = str.split("\\s+");
 		return words.length;
 	}
+
+	public int countChars(){
+		return str.getBytes().length;
+	}
 }
