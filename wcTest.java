@@ -301,4 +301,17 @@ public class WCTest {
         MyFileReader mfr = new MyFileReader("one.txt");
         assertSame("strings are equal", 0, str.compareTo(mfr.readFile()));
     }
+
+    @Test
+    public void readFile_will_not_throw_any_exception_if_file_exists() { 
+        MyFileReader mfr = new MyFileReader("one.txt");
+        Exception ex = null;
+        try{
+            mfr.readFile();
+        }
+        catch (Exception e) {
+            ex = e;
+        }
+        assertEquals(null,ex);
+    }
 }
