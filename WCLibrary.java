@@ -1,6 +1,6 @@
-public class WordCount{
+public class WCLibrary{
 	private String str;
-	public WordCount(String str){
+	public WCLibrary(String str){
 		this.str = str;
 	}
 
