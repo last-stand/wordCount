@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.io.*;
+
 public class WCLibrary{
 	private String str;
 	public WCLibrary(String str){
@@ -48,7 +50,6 @@ public class WCLibrary{
 	}
 
 	public static boolean dashChecker(String option){
-		if(option == "") return false;
 		return option.matches("-.*");
 	};
 
@@ -65,5 +66,32 @@ public class WCLibrary{
 			default:
 				return 0;
 		}
+	}
+}
+
+class MyFileReader{
+	private String fileName;
+
+	MyFileReader(String fileName){
+		this.fileName = fileName;
+	}
+
+	public String readFile(){
+		String content = null;
+		try{
+			BufferedReader br = new BufferedReader(new FileReader(fileName));
+			StringBuilder sb = new StringBuilder();
+			String line = null;
+			while ((line = br.readLine()) != null){
+				sb.append(line);
+            	sb.append("\n");
+			}
+			br.close();
+			content = sb.toString();
+		}
+		catch(Exception e){
+			System.out.println("wc: "+ fileName +": No such file or directory");
+		}
+		return content;
 	}
 }

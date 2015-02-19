@@ -294,4 +294,11 @@ public class WCTest {
         assertSame("should be same", 37, wc1.countMaxLine());
         assertFalse("should not be true", 37 == wc2.countMaxLine());
     }
+
+    @Test
+    public void readFile_should_return_null_if_wrong_fileName_is_passed(){
+        String str = "hello, this is a good day.\n" + "What do you think?\n";
+        MyFileReader mfr = new MyFileReader("one.txt");
+        assertSame("strings are equal", 0, str.compareTo(mfr.readFile()));
+    }
 }
