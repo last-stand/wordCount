@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 public class WCLibrary{
 	private String str;
 	public WCLibrary(String str){
@@ -25,5 +26,44 @@ public class WCLibrary{
 				count++;
 		}
 		return count;
+	}
+
+	public int countMaxLine(){
+		String[] lines = str.split("\n");
+		int maxLength = 0;
+		for(int i=0; i<lines.length; i++){
+			if(lines[i].length() > maxLength)
+				maxLength = lines[i].length();
+		}
+		return maxLength;
+	}
+
+	public static boolean optionChecker(String option){
+		ArrayList<String> options = new ArrayList<String>(5);
+		String[] str = {"-l","-w","-c","-L","--help"};
+		for (int i=0; i<str.length; i++) {
+			options.add(str[i]);
+		}
+		return options.indexOf(option) >= 0;
+	}
+
+	public static boolean dashChecker(String option){
+		if(option == "") return false;
+		return option.matches("-.*");
+	};
+
+	public int optionHandler(String option){
+		switch(option){
+			case "-l":
+				return countLines();
+			case "-w":
+				return countWords();
+			case "-c":
+				return countChars();
+			case "-L":
+				return countMaxLine();
+			default:
+				return 0;
+		}
 	}
 }
