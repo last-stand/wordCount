@@ -21,7 +21,7 @@ public class WCLibrary{
 		return countNewLines(str);
 	}
 
-	public static int countNewLines(String str){
+	public int countNewLines(String str){
 		int count = 0;
 		for(int i=0; i<str.length(); i++){
 			if(str.charAt(i) == '\n')
@@ -40,7 +40,7 @@ public class WCLibrary{
 		return maxLength;
 	}
 
-	public static boolean optionChecker(String option){
+	public boolean optionChecker(String option){
 		ArrayList<String> options = new ArrayList<String>(5);
 		String[] str = {"-l","-w","-c","-L","--help"};
 		for (int i=0; i<str.length; i++) {
@@ -49,7 +49,7 @@ public class WCLibrary{
 		return options.indexOf(option) >= 0;
 	}
 
-	public static boolean dashChecker(String option){
+	public boolean dashChecker(String option){
 		return option.matches("-.*");
 	};
 
